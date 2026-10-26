@@ -1,0 +1,36 @@
+databases:
+  - name: centro-medico-db
+    databaseName: centro_medico
+    user: centro_medico
+    plan: free
+
+services:
+  - type: web
+    name: centro-medico
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: DB_HOST
+        fromDatabase:
+          name: centro-medico-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: centro-medico-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: centro-medico-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: centro-medico-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: centro-medico-db
+          property: password
+      - key: JWT_SECRET
+        sync: false

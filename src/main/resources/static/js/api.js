@@ -3,7 +3,13 @@
  * Todas las páginas usan estas funciones en lugar de llamar a fetch directamente.
  */
 
-const API = "/api";
+/*
+ * Publicado en Vercel, el frontend queda en un dominio y el backend en otro
+ * (Render), así que las llamadas tienen que llevar la URL completa. Cuando lo
+ * sirve el propio Spring Boot, alcanza con la ruta relativa.
+ */
+const BACKEND = "https://TU-SERVICIO.onrender.com";
+const API = location.hostname.endsWith("vercel.app") ? BACKEND + "/api" : "/api";
 const CLAVE_TOKEN = "cm_token";
 const CLAVE_USUARIO = "cm_usuario";
 

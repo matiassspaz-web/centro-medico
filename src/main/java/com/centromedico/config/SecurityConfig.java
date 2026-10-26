@@ -82,8 +82,11 @@ public class SecurityConfig {
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
+        // El frontend puede servirse desde otro dominio (Vercel), no solo desde
+        // el propio backend, asi que esos origenes tambien se permiten.
         CorsConfiguration configuracion = new CorsConfiguration();
-        configuracion.setAllowedOriginPatterns(List.of("http://localhost:*", "http://127.0.0.1:*"));
+        configuracion.setAllowedOriginPatterns(List.of("http://localhost:*", "http://127.0.0.1:*",
+                "https://*.vercel.app"));
         configuracion.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuracion.setAllowedHeaders(List.of("*"));
 
