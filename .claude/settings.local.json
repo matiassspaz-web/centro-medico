@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"C:/Users/matia/css modificado/PROYECTO-FINAL-TALLER-main\")",
+      "PowerShell(java -version)",
+      "PowerShell(mvn -v)",
+      "PowerShell(psql --version)",
+      "PowerShell($base = \"C:\\\\Users\\\\matia\\\\css modificado\\\\PROYECTO-FINAL-TALLER-main\\\\centro-medico\"; Get-ChildItem $base | Select-Object Name; echo \"=== STATIC ===\"; Get-ChildItem \\(Join-Path $base \"src\\\\main\\\\resources\\\\static\"\\) | Select-Object Name)",
+      "PowerShell(mvn -B -q compile)",
+      "PowerShell(mvn -B -q compile 2>&1)",
+      "PowerShell(mvn -B spring-boot:run)",
+      "PowerShell(Get-Process -Name java -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force)",
+      "PowerShell(mvn -B test)"
+    ]
+  }
+}
