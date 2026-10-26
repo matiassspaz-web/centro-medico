@@ -8,7 +8,7 @@
  * (Render), así que las llamadas tienen que llevar la URL completa. Cuando lo
  * sirve el propio Spring Boot, alcanza con la ruta relativa.
  */
-const BACKEND = "https://TU-SERVICIO.onrender.com";
+const BACKEND = "https://centro-medico-rnzx.onrender.com";
 const API = location.hostname.endsWith("vercel.app") ? BACKEND + "/api" : "/api";
 const CLAVE_TOKEN = "cm_token";
 const CLAVE_USUARIO = "cm_usuario";
