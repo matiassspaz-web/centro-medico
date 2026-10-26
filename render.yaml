@@ -1,6 +1,9 @@
-# La base de datos NO se declara aca a proposito: el plan gratuito de Render
-# permite una sola, y ya existe (centro-medico-db). Los datos de conexion se
-# cargan a mano como variables de entorno en el panel del servicio.
+databases:
+  - name: centro-medico-db
+    databaseName: centro_medico
+    user: centro_medico
+    plan: free
+
 services:
   - type: web
     name: centro-medico
@@ -10,14 +13,24 @@ services:
     healthCheckPath: /
     envVars:
       - key: DB_HOST
-        sync: false
+        fromDatabase:
+          name: centro-medico-db
+          property: host
       - key: DB_PORT
-        sync: false
+        fromDatabase:
+          name: centro-medico-db
+          property: port
       - key: DB_NAME
-        sync: false
+        fromDatabase:
+          name: centro-medico-db
+          property: database
       - key: DB_USER
-        sync: false
+        fromDatabase:
+          name: centro-medico-db
+          property: user
       - key: DB_PASSWORD
-        sync: false
+        fromDatabase:
+          name: centro-medico-db
+          property: password
       - key: JWT_SECRET
         sync: false
